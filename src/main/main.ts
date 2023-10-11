@@ -14,6 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import { loadTevefData } from './maps/evo/load';
 
 class AppUpdater {
   constructor() {
@@ -25,10 +26,10 @@ class AppUpdater {
 
 let mainWindow: BrowserWindow | null = null;
 
-ipcMain.on('ipc-example', async (event, arg) => {
-  const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
-  console.log(msgTemplate(arg));
-  event.reply('ipc-example', msgTemplate('pong'));
+ipcMain.on('ipc', async (event, arg) => {
+
+  const data = await loadTevefData("C:\\Users\\Shiro\\Documents\\Warcraft III\\CustomMapData\\Twilight's Eve Evo\\shr#21471");
+  event.reply('ipc', data);
 });
 
 if (process.env.NODE_ENV === 'production') {

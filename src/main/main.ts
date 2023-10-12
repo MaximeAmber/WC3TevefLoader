@@ -9,18 +9,27 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
+import { app, BrowserWindow, shell, ipcMain, globalShortcut } from 'electron';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 import { loadTevefData } from './maps/evo/load';
+import { executeCommand } from './dirt/keyboard';
 
 let mainWindow: BrowserWindow | null = null;
 
 ipcMain.on('ipc', async (event, arg) => {
-
   const data = await loadTevefData("C:\\Users\\Shiro\\Documents\\Warcraft III\\CustomMapData\\Twilight's Eve Evo\\shr#21471");
   event.reply('ipc', data);
 });
+
+ipcMain.on('load', async (event, arg) => {
+  globalShortcut.register('A', async () => {
+    globalShortcut.unregister('A');
+    for (const command of arg) {
+      await executeCommand(command);
+    }
+  });
+})
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');

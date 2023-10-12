@@ -12,16 +12,22 @@ export const loadTevefData = async (path: string) => {
 
 const loadClass = async (path: string) => {
   const classDir = await fs.readdir(path);
-  if (classDir.length == 0 || classDir[classDir.length - 1].indexOf("Level") == -1) {
+  const name = classDir
+    .filter((el) => el.indexOf('[Level ') !== -1)
+    .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }))
+    .pop();
+
+  if (!name) {
     return null;
   }
 
-  const classFile = await fs.readFile(path + "\\" + classDir[classDir.length - 1], 'utf-8');
+  const classFile = await fs.readFile(path + "\\" + name, 'utf-8');
 
-  return parseClassFile(classFile);
+  return Object.assign(
+    parseClassFile(classFile), {level: name?.slice(6, name?.length - 5)});
 }
 
-interface Class {
+export interface Class {
   hero: string;
   gold: string;
   level?: string;

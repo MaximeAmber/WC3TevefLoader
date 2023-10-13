@@ -6,12 +6,12 @@ export const defaultTheme: Theme = createTheme();
 
 export const themeConfig: ThemeOptions = {
   shape: {
-    borderRadius: 0,
+    borderRadius: 8,
   },
   palette: {
     mode: 'dark',
     background: {
-      paper: grey[800],
+      paper: grey[900],
     },
   },
   components: {
@@ -23,17 +23,8 @@ export const themeConfig: ThemeOptions = {
     MuiTooltip: {
       styleOverrides: {
         tooltip: {
-          paddingLeft: '1em',
-          paddingRight: '1em',
-          fontSize: '1em !important',
-          '& a': {
-            color: '#90caf9',
-          },
-          maxWidth: '700px',
-        },
-        popper: {
-          maxWidth: '700px',
-        },
+          background: "#141D28"
+        }
       },
     },
   },

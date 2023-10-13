@@ -32,8 +32,8 @@ export interface Class {
   gold: string;
   level?: string;
   powerShards: string;
-  inventory?: Loadout;
-  stashes?: Loadout[];
+  inventory: Loadout;
+  stashes: Loadout[];
   code: string;
 }
 

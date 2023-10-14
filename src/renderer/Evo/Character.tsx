@@ -2,9 +2,17 @@ import { Class } from '../../main/maps/evo/load';
 import { FC } from 'react';
 import { EvoStash } from './Stash';
 import Grid from '@mui/material/Grid';
+import { useLocation, useParams } from 'react-router-dom';
+import { useCharacterContext } from '../../context';
 
-export const Character: FC<{character: Class | null}> = ({ character }) => {
-  if (character == null) return null;
+export const Character: FC = ()  => {
+  const { getCharacterById } = useCharacterContext();
+  const { id } = useParams();
+
+  const character = getCharacterById(id);
+  if (!character) {
+    return null;
+  }
 
   return (
     <div>

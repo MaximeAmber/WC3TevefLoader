@@ -1,90 +1,81 @@
-import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
+import { MemoryRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import theme from './theme';
 import { ThemeProvider, Button, CssBaseline } from '@mui/material';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import Box from '@mui/material/Box';
+import CachedIcon from '@mui/icons-material/Cached';
 import ListItemText from '@mui/material/ListItemText';
-
+import IconButton from '@mui/material/IconButton';
 import Hello from './Hello';
-import { useEffect, useState } from 'react';
 import { Character } from './Evo/Character';
-import { Class } from '../main/maps/evo/load';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import { useCharacterContext } from '../context';
 
 
 export default function App() {
-  const [allClasses, setAllClasses] = useState<Class[]>([]);
-  const [currentCharacter, setCurrentCharacter] = useState<Class | null>(null);
+  const { allClasses, loadClasses,} = useCharacterContext();
 
-  const loadClasses = () => {
-    window.electron.ipcRenderer.sendMessage('ipc');
-  }
-  const classSelect = (hero: string) => {
-    const cl = allClasses.find(el => el.hero == hero);
-    if (cl) {
-      setCurrentCharacter(cl);
-    }
-  }
-
-  const onLoadClick = () => {
-    if (currentCharacter && currentCharacter.code) {
-      window.electron.ipcRenderer.sendMessage(
-        'load',
-        [
-          '-rp',
-          '-lc',
-          currentCharacter.code.slice(0, currentCharacter.code.length / 2),
-          currentCharacter.code.slice(currentCharacter.code.length / 2, currentCharacter.code.length),
-          '-le',
-          '-woff',
-          '-c',
-          'MONKE TOGETHER STRONK'
-        ]);
-    }
-  }
-
-  useEffect(() => {
-    window.electron.ipcRenderer.on('ipc', (arg) => {
-      // @ts-ignore
-      setAllClasses(arg);
-    });
-  }, []);
   return (
-    <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline/>
-        <Box component="div"
-             sx={{
-               width: 200
-             }}>
-          <Button variant="outlined" onClick={loadClasses}>Load</Button>
-          <Button variant="outlined">Settings</Button>
-          <MenuList>
-            {allClasses.map((el) => (
-              <MenuItem onClick={() => classSelect(el.hero)} key={el.hero.split(" ").join("_")}>
-                <ListItemText>{el.hero}</ListItemText>
+    <Router initialEntries={['/settings']}>
+      <ThemeProvider theme={theme}>
+        <Box sx={{ display: 'flex' }}>
+          <CssBaseline/>
+          <Box component="div"
+               sx={{
+                 justifyContent: 'space-between',
+                 flexDirection: 'column',
+                 display: 'flex',
+                 width: 220,
+                 height: '100vh'
+               }}>
+            <Box>
+              <Box sx={{
+                padding: '20px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}>
+                <Typography>EvoLoader alpha</Typography>
+                <IconButton
+                  onClick={loadClasses}>
+                  <CachedIcon />
+                </IconButton >
+              </Box>
+              <MenuList>
+                {allClasses.map((el) => (
+                  <MenuItem component={Link} to={`/character/${el.hero}`}  key={el.hero.split(" ").join("_")}>
+                    <ListItemText>{el.hero}</ListItemText>
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </Box>
+            <Box sx={{
+              width: '100%',
+            }}>
+              <Divider />
+              <MenuItem component={Link} to="/settings">
+                Settings
               </MenuItem>
-            ))}
-          </MenuList>
-        </Box>
-        <Box component="main"
-             sx={{
-                backgroundColor: theme.palette.grey[900],
-                flexGrow: 1,
-                height: '100vh',
-                overflow: 'auto',
-                paddingLeft: '20px'
-             }}
+            </Box>
+          </Box>
+          <Box component="main"
+               sx={{
+                 backgroundColor: theme.palette.grey[900],
+                 flexGrow: 1,
+                 height: '100vh',
+                 overflow: 'auto',
+                 paddingLeft: '20px'
+               }}
           >
-          <Router>
             <Routes>
               <Route path="/settings" element={<Hello />} />
-              <Route path="/" element={<Character character={currentCharacter}/>}/>
+              <Route path="/character/:id" element={<Character />}/>
             </Routes>
-            {currentCharacter && (<Button onClick={onLoadClick}>Load character</Button>)}
-          </Router>
+          </Box>
         </Box>
-      </Box>
-    </ThemeProvider>
+      </ThemeProvider>
+    </Router>
   );
 }

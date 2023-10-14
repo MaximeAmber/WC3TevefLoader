@@ -5,8 +5,8 @@ import { EvoItem } from '../index';
 
 export const hell1Items: { [id:string]: EvoItem } = {
   // Hell 1
-  "Atma's Defense": {
-    id: "Atma's Defense",
+  "Atma's Ring": {
+    id: "Atma's Ring",
     restriction: EvoItemRestictions.ALL_CLASSES,
     rarity: EvoRarity.EPIC,
     icon: "BTNINV_Jewelry_Ring_10",

@@ -15,6 +15,12 @@ import { bobBuilderItems } from './forging/bobBuilder';
 import { hell3Items } from './hell/hell3';
 import { hell2Items } from './hell/hell2';
 import { hell1Items } from './hell/hell1';
+import { nagaItems } from './nightmare/naga';
+import { sewersItems } from './nightmare/sewers';
+import { goldmineItems } from './hard/goldmine';
+import { centaurItems } from './hard/centaur';
+import { puzzleItems } from './hard/puzzle';
+import { imp3Items } from './imp/imp3';
 
 export interface EvoItem {
   id: string;
@@ -41,10 +47,18 @@ export const evoItems = Object.assign(
   angelCloudsItems,
   //
   icyHighlandItems,
+
+  goldmineItems,
+  centaurItems,
+  puzzleItems,
+
+  nagaItems,
+  sewersItems,
   hell1Items,
   hell2Items,
   hell3Items,
   hell4Items,
   imp1Items,
   imp2Items,
+  imp3Items,
 );

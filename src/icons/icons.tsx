@@ -22,6 +22,36 @@ import BTNWitchDoctorAdept from "./wc3/BTNWitchDoctorAdept.png";
 import BTNThoriumMelee from "./wc3/BTNThoriumMelee.png";
 import BTNThoriumArmor from "./wc3/BTNThoriumArmor.png";
 
+// Hard 1 (Evo)
+import BTNBelt from "./wc3/BTNBelt.png";
+import BTNBoots from "./wc3/BTNBoots.png";
+import BTNRunedBracers from "./wc3/BTNRunedBracers.png";
+import BTNAdvancedUnholyStrength from "./wc3/BTNAdvancedUnholyStrength.png";
+import BTNHelmutPurple from "./wc3/BTNHelmutPurple.png";
+import BTNWandOfCyclone from "./wc3/BTNWandOfCyclone.png";
+import BTNArmorGolem from "./wc3/BTNArmorGolem.png";
+import BTNPhilosophersStone from "./wc3/BTNPhilosophersStone.png";
+
+// Hard 2 (Evo)
+import BTNUsedSoulGem from "./wc3/BTNUsedSoulGem.png";
+import BTNOrcMeleeUpTwo from "./wc3/BTNOrcMeleeUpTwo.png";
+import BTNThoriumRanged from "./wc3/BTNThoriumRanged.png";
+import BTNHumanMissileUpTwo from "./wc3/BTNHumanMissileUpTwo.png";
+import BTNHumanArmorUpTwo from "./wc3/BTNHumanArmorUpTwo.png";
+import BTNSpiritWalkerAdeptTraining from "./wc3/BTNSpiritWalkerAdeptTraining.png";
+import BTNHumanMissileUpThree from "./wc3/BTNHumanMissileUpThree.png";
+import BTNSpell_Holy_RetributionAura from "./evo/BTNSpell_Holy_RetributionAura.png";
+
+// Hard 3 (Evo)
+import BTNBootsOfSpeed from "./wc3/BTNBootsOfSpeed.png";
+import BTNHornOfCenarius from "./wc3/BTNHornOfCenarius.png";
+import BTNAdvancedMoonArmor from "./wc3/BTNAdvancedMoonArmor.png";
+import BTNBansheeMaster from "./wc3/BTNBansheeMaster.png";
+import BTNDwarvenLongRifle from "./wc3/BTNDwarvenLongRifle.png";
+import BTNSpell_Holy_RighteousnessAura from "./evo/BTNSpell_Holy_RighteousnessAura.png";
+import BTNStaffOfNegation from "./wc3/BTNStaffOfNegation.png";
+import BTNRingJadeFalcon from "./wc3/BTNRingJadeFalcon.png";
+
 import BTNINV_Jewelry_Ring_10 from "./evo/BTNINV_Jewelry_Ring_10.png";
 import BTNGauntletsOfOgrePower from "./wc3/BTNGauntletsOfOgrePower.png";
 import BTNWirtsLeg from "./wc3/BTNWirtsLeg.png";
@@ -39,6 +69,26 @@ import BTNDryadDispelMagic from "./wc3/BTNDryadDispelMagic.png";
 import BTNEnchantedGemstone from "./wc3/BTNEnchantedGemstone.png";
 import BTNTimeSabres from "./evo/BTNTimeSabres.png";
 import BTNFrozenDeath from "./evo/BTNFrozenDeath.png";
+
+import BTNOrcMeleeUpThree from "./wc3/BTNOrcMeleeUpThree.png";
+import BTNCloakOfFlames from "./wc3/BTNCloakOfFlames.png";
+import BTNBrilliance from "./wc3/BTNBrilliance.png";
+import BTNMoonArrow from "./evo/BTNMoonArrow.png";
+import BTNINV_Wand_09 from "./evo/BTNINV_Wand_09.png";
+import BTNMoonStone from "./wc3/BTNMoonStone.png";
+import BTNFrostSword from "./evo/BTNFrostSword.png";
+import BTNWindsCloak from "./evo/BTNWindsCloak.png";
+import BTNHydraWarStomp from "./wc3/BTNHydraWarStomp.png";
+
+import BTNAbility_Hunter_AimedShot from "./evo/BTNAbility_Hunter_AimedShot.png";
+import BTNNecklace from "./wc3/BTNNecklace.png";
+import BTNAbility_BackStab from "./evo/BTNAbility_BackStab.png";
+import BTNRevenant from "./wc3/BTNRevenant.png";
+import BTNGMExchange from "./wc3/BTNGMExchange.png";
+import BTNSpell_Holy_BlessingOfProtection from "./evo/BTNSpell_Holy_BlessingOfProtection.png";
+import BTNWandOfManaSteal from "./wc3/BTNWandOfManaSteal.png";
+import BTNPeriapt from "./wc3/BTNPeriapt.png";
+import BTNOrbOfDarkness from "./wc3/BTNOrbOfDarkness.png";
 
 import BTNAdvancedReinforcedHides from "./wc3/BTNAdvancedReinforcedHides.png";
 import BTNNagaWeaponUp2 from "./wc3/BTNNagaWeaponUp2.png";
@@ -118,6 +168,8 @@ import BTNRuneBladeFrost from "./evo/BTNRuneBladeFrost.png";
 import BTNGrimSeal from "./evo/BTNGrimSeal.png";
 import BTNMongooseBlade from "./evo/BTNMongooseBlade.png";
 import BTNStormShield from "./evo/BTNStormShield.png";
+import { imp3Icons } from './imp3Icons';
+
 
 const icons = {
   // wc3 icons
@@ -173,8 +225,50 @@ const icons = {
   BTNHeartOfAszune,
   BTNNagaWeaponUp3,
   BTNOrbofSlowness,
+  BTNOrcMeleeUpThree,
+  BTNCloakOfFlames,
+  BTNBrilliance,
+  BTNMoonStone,
+  BTNHydraWarStomp,
+  BTNNecklace,
+  BTNRevenant,
+  BTNGMExchange,
+  BTNWandOfManaSteal,
+  BTNPeriapt,
+  BTNOrbOfDarkness,
+  BTNBelt,
+  BTNBoots,
+  BTNRunedBracers,
+  BTNAdvancedUnholyStrength,
+  BTNHelmutPurple,
+  BTNWandOfCyclone,
+  BTNArmorGolem,
+  BTNPhilosophersStone,
+  BTNUsedSoulGem,
+  BTNOrcMeleeUpTwo,
+  BTNThoriumRanged,
+  BTNHumanMissileUpTwo,
+  BTNHumanArmorUpTwo,
+  BTNSpiritWalkerAdeptTraining,
+  BTNHumanMissileUpThree,
+  BTNBootsOfSpeed,
+  BTNHornOfCenarius,
+  BTNAdvancedMoonArmor,
+  BTNBansheeMaster,
+  BTNDwarvenLongRifle,
+  BTNStaffOfNegation,
+  BTNRingJadeFalcon,
 
   // Evo icons
+  BTNSpell_Holy_RighteousnessAura,
+  BTNSpell_Holy_RetributionAura,
+  BTNSpell_Holy_BlessingOfProtection,
+  BTNAbility_BackStab,
+  BTNAbility_Hunter_AimedShot,
+  BTNWindsCloak,
+  BTNFrostSword,
+  BTNINV_Wand_09,
+  BTNMoonArrow,
   BTNINV_Jewelry_Ring_10,
   BTNINV_Weapon_Rifle_08,
 
@@ -240,6 +334,7 @@ const icons = {
   BTNGrimSeal,
   BTNMongooseBlade,
   BTNStormShield,
+  ...imp3Icons
 }
 
 export const iconFromId = (id: keyof typeof icons): string => {
